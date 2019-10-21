@@ -1,3 +1,34 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<%= icon("fas", "link") %>
+<header class="header-section">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-5 col-md-12">
+        <div class="logo">
+          <%= link_to "#", class: "logo-title" do %>
+            Okashi
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-lg-5 col-md-8">
+        <div class="search-form">
+          <input type="text" placeholder="検索">
+          <div aria-hidden="true">
+            <%= icon('fas', 'search')%>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-4">
+        <div class="login-link">
+           <%= link_to "#", class: "login" do %>
+            <%= icon('fas', 'sign-in-alt')%>
+            ログイン
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</header>
