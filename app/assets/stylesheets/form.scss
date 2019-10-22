@@ -1,0 +1,35 @@
+// form
+// .form-wrapper {
+//   text-align: center;
+// }
+
+.form-title {
+  padding-bottom: 30px;
+  font-size: 30px;
+}
+
+.form-list {
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.form-group input {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	margin: 8px 0;
+	padding: 0.3em;
+	transition: 0.3s;
+	border: 1px solid #d1d3d6;
+	border-radius: 4px;
+  outline: none;
+}
+
+.form-control {
+	width: 30%;
+}
+
+// alert
+
+#error_explanation {
+	color: brown;
+}

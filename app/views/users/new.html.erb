@@ -1,2 +1,25 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="form-wrapper">
+  <div class="form-title">sign up</div>
+
+  <div class="row">
+    <div class="col-md-12 col-md-offset-12">
+
+      <div class="form-group">
+        <%= form_for(@user) do |f| %>
+          <%= render 'shared/error_messages' %> 
+
+          <%= f.text_field :name, placeholder: "名前", class: "form-control d-block"%>
+
+          <%= f.email_field :email, placeholder: "メールアドレス", class: "form-control d-block" %>
+
+          <%= f.password_field :password, placeholder: "パスワード", class: "form-control d-block" %>
+
+          <%= f.password_field :password_confirmation, placeholder: "パスワード（確認）", class: "form-control d-block" %>
+
+          <%= f.submit "とうろく", class: "btn btn-info" %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
