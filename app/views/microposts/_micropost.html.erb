@@ -1,4 +1,8 @@
-<div class="micropost">
+<div class="micropost pb-2">
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
-  <p class="content"><%= micropost.content %></p>
+  <span class="content"><%= micropost.content %></span>
+  <% if current_user?(micropost.user) %>
+    <%= link_to "delete", micropost, method: :delete,
+                                      data: { confirm: "本当に削除しますか？" } %>
+  <% end %>
 </div>
