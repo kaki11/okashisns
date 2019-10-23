@@ -1,10 +1,13 @@
-<div class="micropost pb-2">
-  <div class="user"><%= link_to micropost.user.name, micropost.user %></div>
+<div class="micropost">
   <span class="content">
   <%= image_tag micropost.picture.url if micropost.picture? %>
   </span>
-  <% if current_user?(micropost.user) %>
-    <%= link_to "delete", micropost, method: :delete,
-                                      data: { confirm: "本当に削除しますか？" } %>
-  <% end %>
+
+  <div class="fl-r">
+    <%= link_to micropost.user.name, micropost.user %>
+    <% if current_user?(micropost.user) %>
+      <%= link_to "delete", micropost, method: :delete,
+                                        data: { confirm: "本当に削除しますか？" } %>
+    <% end %>
+  </div>
 </div>
