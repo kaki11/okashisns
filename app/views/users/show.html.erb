@@ -1,3 +1,4 @@
- 
- <p class="pb-3"><%= link_to "投稿する", new_micropost_path %></p>
+ <% if logged_in? %>
+   <p class="pb-3"><%= link_to "投稿する", new_micropost_path %></p>
+ <% end%>
  <%= render @microposts %>
