@@ -1,0 +1,22 @@
+<div class="form-wrapper">
+  <div class="form-title">new</div>
+
+  <div class="row">
+    <div class="col-md-12 col-md-offset-12">
+
+      <div class="form-group">
+        <%= form_for(@micropost) do |f| %>
+          <%= render 'shared/error_messages', object: f.object %> 
+
+          <%#= f.text_field :content, placeholder: "タイトル", class: "form-control d-block"%>
+
+          <%= f.text_area :content, placeholder: "内容", class: "form-control d-block" %>
+
+          <%= f.submit "投稿", class: "btn btn-info" %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
