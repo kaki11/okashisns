@@ -1,6 +1,6 @@
 <div class="micropost">
   <span class="content">
-  <%= image_tag micropost.picture.url if micropost.picture? %>
+  <%= link_to image_tag(micropost.picture.url), micropost_path(micropost.id)  if micropost.picture? %>
   </span>
 
   <div class="fl-r">
