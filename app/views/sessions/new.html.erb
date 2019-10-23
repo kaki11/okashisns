@@ -1,2 +1,21 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div class="form-wrapper">
+  <div class="form-title">log in</div>
+
+  <div class="row">
+    <div class="col-md-12 col-md-offset-12">
+
+      <div class="form-group">
+        <%= form_for(:session, url: login_path) do |f| %> 
+
+          <%= f.email_field :email, placeholder: "メールアドレス", class: "form-control d-block" %>
+
+          <%= f.password_field :password, placeholder: "パスワード", class: "form-control d-block" %>
+
+          <%= f.submit "ログイン", class: "btn btn-info" %>
+        <% end %>
+        <p><%= link_to "新規登録はこちら", signup_path %></p>
+
+      </div>
+    </div>
+  </div>
+</div>
