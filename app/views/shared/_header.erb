@@ -18,16 +18,29 @@
           </div>
         </div>
       </div>
+      <% if logged_in? %>
+        <div class="col-lg-2 col-md-4">
+          <div class="login-links">
+            <%= link_to current_user, class: "login-button" do %>
+              マイページ
+            <% end %>
 
-      <div class="col-lg-2 col-md-4">
-        <div class="login-link">
-           <%= link_to login_path, class: "login-button" do %>
-            ログイン
-          <% end %>
+            <%= link_to logout_path, method: :delete, class: "login-button" do %>
+              ログアウト
+            <% end %>
+          </div>
         </div>
-      </div>
+
+      <% else %>
+        <div class="col-lg-2 col-md-4">
+          <div class="login-links">
+            <%= link_to login_path, class: "login-button" do %>
+              ログイン
+            <% end %>
+          </div>
+        </div>
+      <% end %>
 
     </div>
   </div>
-
 </header>
