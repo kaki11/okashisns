@@ -1,11 +1,20 @@
 require 'rails_helper'
 
 describe MicropostsController do
+  let(:user) { create(:user) }
 
   describe 'GET #new' do
     it "newに移管すること" do
       get :new
       expect(response).to render_template :new
+    end
+  end
+
+  describe 'GET #show' do
+    it "showに移管すること" do
+      micropost = create(:micropost)
+      get :show, params: { id: micropost }
+      expect(response).to render_template :show
     end
   end
 
@@ -23,18 +32,9 @@ describe MicropostsController do
     end
   end
 
-
-  # homeControllerにかく
-  describe 'GET #index' do
-    it "投稿が新しい順に並んでいること" do
-      microposts = create_list(:micropost, 3) 
-      get :index
-      expect(assigns(:microposts)).to match(microposts.sort{ |a, b| b.created_at <=> a.created_at } )
-    end
-
-    it "indexに遷移すること" do
-      get :index
-      expect(response).to render_template :index
+  describe 'DELETE #destroy' do
+    # let!(:micropost) { create :micropost }
+    it 'micropostが削除されること' do
     end
   end
 
