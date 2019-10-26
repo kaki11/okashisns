@@ -27,6 +27,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+  gem 'faker', '2.6.0'
 end
 
 group :development do
@@ -39,8 +40,7 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
-  gem 'faker'
+  gem 'webdrivers'
 end
 
 group :production do

@@ -1,10 +1,9 @@
 FactoryBot.define do
-
   factory :user do
-    name { "test" }
-    password { "password00" }
-    password_confirmation { "password00" }
+    password = Faker::Internet.password(min_length: 6)
+    name { Faker::Games::Pokemon.name }
+    password { password }
+    password_confirmation { password }
     sequence(:email) {Faker::Internet.email}
   end
-
 end
