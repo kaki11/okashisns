@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update, :destroy]
+  before_action :logged_in_user, only: [:new, :edit, :update, :destroy]
   before_action :correct_user,   only: :destroy
 
   def show
@@ -23,7 +23,8 @@ class MicropostsController < ApplicationController
   def destroy
     @micropost.destroy
     flash[:success] = "削除しました"
-    redirect_to request.referrer || root_url　　#redirect_back(fallback_location: root_url)と同じ意味
+    #  redirect_back(fallback_location: root_url)と同じ意味
+    redirect_to request.referrer || root_url
   end
 
   private
