@@ -46,36 +46,54 @@ describe MicropostsController do
     before do
       log_in user
     end
-    let(:params) do
-      { params: { micropost: attributes_for(:micropost) } }
-    end
-
+    # let(:params) do
+    #   { params: { micropost: attributes_for(:micropost) } }
+    # end
+    let(:params) { { user_id: user.id, micropost: attributes_for(:micropost) } }
+   
     context '保存に成功した場合' do
+      subject {
+        post :create,
+        params: params
+      }
       it 'データベースに保存ができたか' do
-        expect{post :create, params}.to change(Micropost, :count).by(1)
+        expect{ subject }.to change(Micropost, :count).by(1)
+        # expect{post :create, params}.to change(Micropost, :count).by(1)
       end
 
       it 'マイページにリダイレクトしているか' do
-        post :create, params
-        expect(response).to redirect_to user_path(user)
+        subject
+        expect(response).to redirect_to(user_path(user))
+        # post :create, params
+        # expect(response).to redirect_to user_path(user)
       end
     end
 
     context '保存に失敗した場合' do
       render_views
-      it 'データベースに保存が行われなかったか' do
-        expect{
-          post :create, params: { micropost: attributes_for(:micropost, title: nil, content: nil, picture: nil) }
-        }.to change(Micropost, :count).by(0)
+      let(:invalid_params) { { user_id: user.id, micropost: attributes_for(:micropost, picture: nil) } }
+      subject {
+        post :create,
+        params: invalid_params
+      }
+
+      it 'データベースに保存が行われなかったか' do 
+          expect{ subject }.not_to change(Micropost, :count)
+      #   expect{
+      #     post :create, params: { micropost: attributes_for(:micropost, title: nil, content: nil, picture: nil) }
+      #   }.to change(Micropost, :count).by(0)
       end
 
       it 'リダイレクトされているか' do
-        post :create, params: { micropost: attributes_for(:micropost, picture: nil) }
+        subject
         expect(response).to render_template :new
+        # post :create, params: { micropost: attributes_for(:micropost, picture: nil) }
+        # expect(response).to render_template :new
       end
       
       it 'エラーメッセージが表示されているか' do
-        post :create, params: { micropost: attributes_for(:micropost, picture: nil) }
+        # post :create, params: { micropost: attributes_for(:micropost, picture: nil) }
+        subject
         expect(response.body).to_not include "can't be blank"
       end
     end
@@ -83,8 +101,10 @@ describe MicropostsController do
     context 'ログインしていない場合' do
       it 'ログインページにリダイレクトしているか' do
         log_out
-        get :new 
-        expect(response).to redirect_to login_path
+        post :create, params: params
+        expect(response).to redirect_to(login_path)
+        # get :new 
+        # expect(response).to redirect_to login_path
       end
     end
   end
