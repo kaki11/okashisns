@@ -8,11 +8,11 @@
           <%= form_for(@micropost) do |f| %>
             <%= render 'shared/error_messages', object: f.object %> 
 
-            <%= f.text_field :title, placeholder: "タイトル", class: "form-control d-block"%>
+            <%= f.text_field :title, placeholder: "タイトル", class: "form-control d-block", id: "title" %>
 
-            <%= f.text_area :content, placeholder: "内容", class: "form-control d-block" %>
+            <%= f.text_area :content, placeholder: "内容", class: "form-control d-block", id: "content" %>
 
-            <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png", class: "form-control d-block" %>
+            <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png", class: "form-control d-block", id: "picture" %>
 
             <%= f.submit "投稿", class: "btn btn-info" %>
 
