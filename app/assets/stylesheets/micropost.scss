@@ -1,6 +1,7 @@
 .microposts {
   padding-bottom: 30px;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .micropost {
@@ -34,4 +35,8 @@
 
 .comment-list {
   border-bottom: 1px solid #dee2e6;
+}
+
+.delete-link {
+  text-align: right;
 }

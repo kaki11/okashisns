@@ -21,10 +21,13 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
-    @micropost.destroy
-    flash[:success] = "削除しました"
-    #  redirect_back(fallback_location: root_url)と同じ意味
-    redirect_to request.referrer || root_url
+    if @micropost.user_id == current_user.id
+        @micropost.destroy
+        flash[:success] = "削除しました"
+        redirect_to current_user
+      else
+        flash.now[:danger] = "削除出来ません"
+      end
   end
 
   private

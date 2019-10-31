@@ -25,8 +25,21 @@
   </div>
 
   <div class="right-contents shadow p-5 bg-white ml-3">
+    <div class="delete-link">
+      <% if current_user?(@micropost.user) %>
 
-    <div class="btn-group pb-3">
+        <%= link_to micropost_path(@micropost), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+          <%= icon('fas', 'trash')%>
+        <% end %>
+        <%= link_to "#" do %>
+          <%= icon('far', 'edit')%>
+        <% end %>
+
+      <% end %>
+    </div>
+
+    <%= link_to @micropost.user.name, @micropost.user %>さんの投稿
+    <div class="btn-group pb-3 pt-3">
       <div class="page-link text-secondary d-inline-block rounded mr-1">
         <%= icon('fas', 'heart')%>いいね！
       </div>

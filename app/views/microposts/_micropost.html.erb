@@ -1,13 +1,5 @@
-<div class="micropost">
+<div class="micropost shadow bg-white rounded p-1 m-1">
   <span class="content">
   <%= link_to image_tag(micropost.picture.url), micropost_path(micropost.id)  if micropost.picture? %>
   </span>
-
-  <div class="fl-r">
-    <%= link_to micropost.user.name, micropost.user %>
-    <% if current_user?(micropost.user) %>
-      <%= link_to "delete", micropost, method: :delete,
-                                        data: { confirm: "本当に削除しますか？" } %>
-    <% end %>
-  </div>
 </div>
