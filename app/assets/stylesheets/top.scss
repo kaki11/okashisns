@@ -1,5 +1,46 @@
+// side-bar
+.main {
+  clear: both;
+  display: block;
+  content: " ";
+}
+
+.side-box {
+  float: left;
+  width: 200px;
+  height: 800px;
+  background-color: #fff4ea;
+}
+
+.category-list a{
+  text-decoration: none;
+  float: left;
+  display: inline-block;
+  line-height: 1.3em;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  border-radius: 3px;
+  padding: 5px 8px;
+  background: #fff;
+  color: #666;
+}
+
+.category-list a:hover {
+    background: #ed693b;
+    color: #fff;
+}
+
+.category {
+  clear: both;
+  display: block;
+  content: " ";
+}
+
+
+
 .pict-wrapper {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .dummy {
