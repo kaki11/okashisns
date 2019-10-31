@@ -6,3 +6,32 @@
 .micropost {
   width: 200px;
 }
+
+// show
+.contents-box {
+  overflow: hidden;
+}
+.left-contents {
+  float: left;
+  width: 650px;
+}
+.right-contents {
+  float: left;
+  width: 530px;
+}
+.fa-heart {
+  color: #ffcce5;
+}
+.fa-star {
+  color: #ffe5cc;
+}
+.fa-share {
+  color: #cce5ff;
+}
+.fa-comment {
+  color: #e5ccff;
+}
+
+.comment-list {
+  border-bottom: 1px solid #dee2e6;
+}

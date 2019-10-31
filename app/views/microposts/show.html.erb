@@ -1,14 +1,49 @@
-<div class="pict-main">
-  <%= image_tag(@micropost.picture.url) %>
-</div>
+<div class="contents-box">
 
-<div class="pict-group">
+  <div class="left-contents shadow p-5 bg-white">
+    <div class="pict-main">
+      <%= image_tag(@micropost.picture.url) %>
+    </div>
 
-  <h3 class="pict-title pb-2">
-    <%= @micropost.title %>
-  </h3>
-  <div class="pict-content pb-4">
-    <%= @micropost.content %>
+    <div class="date text-right">
+      <%= icon('fas', 'heart')%>20
+    </div>
+    <div class="date text-right">
+      <%= icon('fas', 'clock')%>2019/10/29
+    </div>
+
+    <div class="pict-group">
+
+      <h3 class="pict-title pb-2">
+        <%= @micropost.title %>
+      </h3>
+      <div class="pict-content pb-4">
+        <%= @micropost.content %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="right-contents shadow p-5 bg-white ml-3">
+
+    <div class="btn-group pb-3">
+      <div class="page-link text-secondary d-inline-block rounded mr-1">
+        <%= icon('fas', 'heart')%>いいね！
+      </div>
+      <div class="page-link text-secondary d-inline-block rounded mr-1">
+        <%= icon('fas', 'star')%>お気に入り
+      </div>
+      <div class="page-link text-secondary d-inline-block rounded mr-1">
+        <%= icon('fas', 'share')%>シェア
+      </div>
+      <div class="page-link text-secondary d-inline-block rounded">
+        <%= icon('fas', 'comment')%>コメント
+      </div>
+    </div>
+
+    <div class="comment-list">
+      こめんと
+    </div>
   </div>
 
 </div>
