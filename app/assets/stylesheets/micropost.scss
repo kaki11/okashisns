@@ -12,6 +12,15 @@
 .contents-box {
   overflow: hidden;
 }
+.right-contents a {
+  text-decoration: none;
+  color: #6c757d;
+}
+.right-contents a:hover{
+  text-decoration: none;
+  color: #dee2e6;
+}
+
 .left-contents {
   float: left;
   width: 650px;

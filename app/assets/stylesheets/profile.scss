@@ -1,0 +1,40 @@
+.profile a {
+  text-decoration: none;
+  color: #666;
+}
+
+.profile a:hover {
+  color: #ed693b
+}
+
+
+.profile p a{
+  text-decoration: none;
+  line-height: 1.3em;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  border-radius: 3px;
+  padding: 5px 8px;
+  background: #fff;
+  color: #666;
+}
+
+.profile p a:hover {
+    background: #ed693b;
+    color: #fff;
+}
+
+.name {
+  font-size: 30px;
+}
+
+.user-menu a{
+  text-decoration: none;
+  color: #666;
+}
+
+.user-menu a:hover{
+  text-decoration: none;
+  color: #ed693b;
+}
+
