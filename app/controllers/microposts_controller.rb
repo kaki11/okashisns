@@ -11,7 +11,7 @@ class MicropostsController < ApplicationController
   end
 
   def create
-    @micropost = current_user.microposts.new(micropost_params)
+    @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
       flash[:success] = "投稿しました"
       redirect_to current_user
