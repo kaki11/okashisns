@@ -25,9 +25,9 @@
 
 </div>
 
-<div class="microposts">
+<div class="pict-wrapper">
   <% @microposts.each do |micropost| %>
-    <div class="micropost shadow bg-white rounded p-1 m-1">
+    <div class="pict shadow bg-white rounded p-1 m-1">
       <%= link_to image_tag(micropost.picture.url), micropost_path(micropost.id)  if micropost.picture? %>
     </div>
   <% end %>
