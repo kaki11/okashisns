@@ -20,6 +20,21 @@ class MicropostsController < ApplicationController
     end
   end
 
+  def edit
+    @micropost = Micropost.find(params[:id])
+  end
+
+  def update
+    @micropost = Micropost.find(params[:id])
+    if @micropost.update_attributes!(micropost_params)
+      flash[:success] = '編集しました'
+      redirect_to micropost_path(@micropost)
+      
+    else
+      render :edit
+    end
+  end
+
   def destroy
     if @micropost.user_id == current_user.id
         @micropost.destroy

@@ -10,11 +10,11 @@
 }
 .right-contents a {
   text-decoration: none;
-  color: #6c757d;
+  color: #666;
 }
 .right-contents a:hover{
   text-decoration: none;
-  color: #dee2e6;
+  color: #ed693b;
 }
 
 .left-contents {
@@ -38,7 +38,7 @@
   color: #e5ccff;
 }
 .fa-cookie {
-  color: #F0D19A;
+  color: #d8a598;
 }
 .fa-cookie-bite {
   color: #F0D19A;
@@ -50,4 +50,8 @@
 
 .delete-link {
   text-align: right;
+}
+
+.date {
+  color: #6c757d;
 }
