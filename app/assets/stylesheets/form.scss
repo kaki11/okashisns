@@ -32,6 +32,16 @@
 	width: 500px;
 }
 
+.form-group a {
+  text-decoration: none;
+  color: #666;
+}
+
+.form-group a:hover {
+  color: #ed693b
+}
+
+
 // alert
 
 #error_explanation {

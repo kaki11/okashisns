@@ -6,6 +6,11 @@
 
 .micropost {
   width: 200px;
+  
+}
+.micropost a:hover {
+  transition: 0.7s;
+  opacity: 0.7;
 }
 
 // show

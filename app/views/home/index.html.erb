@@ -12,13 +12,11 @@
             <h5 class="main-title">最近の投稿</h5>
               <div class="pict-wrapper">
                 
-
                 <% @microposts.each do |micropost| %>
                 <div class="pict shadow bg-white rounded p-1 m-1">
                 <%= link_to image_tag(micropost.picture.url), micropost_path(micropost.id) %>
                 </div>
                 <% end %>
-
   
               </div>
           </div>
@@ -28,11 +26,10 @@
           <div class="top-contents mt-5">
             <h5 class="main-title">おすすめレシピ</h5>
               <div class="pict-wrapper">
-              
-                <%= image_tag "dami-.png", class: "dummy"%>
-                <%= image_tag "dami-.png", class: "dummy"%>
-                <%= image_tag "dami-.png", class: "dummy"%>
-                <span class="">moer..</span>
+
+                <%= link_to image_tag("dami-.png", size: '200' ), "#", class: "dummy" %>
+                <%= link_to image_tag("dami-.png", size: '200' ), "#", class: "dummy" %>
+                <%= link_to image_tag("dami-.png", size: '200' ), "#", class: "dummy" %>
 
               </div>
           </div>

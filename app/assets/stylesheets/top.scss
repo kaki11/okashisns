@@ -1,4 +1,16 @@
+body {
+  font-family: 'M PLUS Rounded 1c','Varela Round',sans-serif; 
+}
+.logo-title {
+  font-size: 30px;
+  font-family:'Bad Script', cursive;
+}
+
 // side-bar
+.categorys {
+  color: #ed693b;
+}
+
 .main {
   clear: both;
   display: block;
@@ -35,11 +47,14 @@
   content: " ";
 }
 
-
-
 .pict-wrapper {
   display: flex;
   flex-wrap: wrap;
+}
+
+.pict-wrapper a:hover {
+  transition: 0.7s;
+  opacity: 0.7;
 }
 
 .dummy {

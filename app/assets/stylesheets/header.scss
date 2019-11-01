@@ -48,13 +48,18 @@
 	color: #aaaaaa;
 }
 .search-form input[type=text]:focus + i {
-	color: #da3c41;
+	color:  #ed693b;
 }
 
 .login-links {
   position: absolute;
-  bottom: 0;
+	bottom: 0;
 }
+
+.login-links a:hover {
+  opacity: 0.7;
+}
+
 
 // footer
 
@@ -66,7 +71,10 @@
 
 .footer-section a {
   text-decoration: none;
-  color: #da3c41;
+  color:  #ed693b;
+}
+.footer-section a:hover {
+  opacity: 0.7;
 }
 
 .footer-links {
