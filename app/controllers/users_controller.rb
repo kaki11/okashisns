@@ -16,10 +16,25 @@ class UsersController < ApplicationController
       log_in @user
       flash[:success] = "とうろくが完了しました！"
       redirect_to @user
-
     else
       render 'new'
     end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to user_path(current_user), success: '編集しました'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
   end
 
   private

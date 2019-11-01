@@ -1,0 +1,27 @@
+<div class="form-wrapper">
+  <div class="shadow p-5 bg-white">
+    <div class="form-title">edit</div>
+
+    <div class="row">
+      <div class="col-md-12 col-md-offset-12">
+
+        <div class="form-group">
+          <%= form_for(@user) do |f| %>
+            <%= render 'shared/error_messages', object: f.object %> 
+
+            <%= f.text_field :name, placeholder: "名前", class: "form-control"%>
+
+            <%= f.email_field :email, placeholder: "メールアドレス", class: "form-control" %>
+
+            <%= f.password_field :password, placeholder: "パスワード", class: "form-control" %>
+
+            <%= f.password_field :password_confirmation, placeholder: "パスワード（確認）", class: "form-control" %>
+
+            <%= f.submit "とうろく", class: "btn btn-info" %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
