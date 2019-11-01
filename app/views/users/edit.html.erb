@@ -19,6 +19,9 @@
 
             <%= f.submit "とうろく", class: "btn btn-info" %>
           <% end %>
+          <p class="pt-3"><%= link_to "アカウントを削除する", user_path(@user), method: :delete,
+                             data: { confirm: "投稿も全て削除されます。本当に削除しますか？" } %></p>
+
 
         </div>
       </div>
