@@ -9,7 +9,13 @@
       <%= icon('fas', 'heart')%>20
     </div>
     <div class="date text-right">
-      <%= icon('fas', 'clock')%>2019/10/29
+      <%= icon('fas', 'clock')%>
+      <%= @micropost.created_at.strftime("%Y/%m/%d %H:%M") %>
+      
+      <% if @micropost.updated_at != @micropost.created_at %>
+      →
+      <%= @micropost.updated_at.strftime("%Y/%m/%d %H:%M") %>
+      <% end %>
     </div>
 
     <div class="pict-group">
