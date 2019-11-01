@@ -23,12 +23,12 @@ describe HomeController do
         get :index, params: { user_id: user.id }
       end
 
-      it '『マイページ』が表示される' do
-        expect(response.body).to include "マイページ"
+      it '『home』が表示される' do
+        expect(response.body).to include "home"
       end
 
-      it '『ログアウト』が表示される' do
-        expect(response.body).to include "ログアウト"
+      it '『Logout』が表示される' do
+        expect(response.body).to include "Logout"
       end
 
     end
@@ -39,8 +39,8 @@ describe HomeController do
         get :index
       end
 
-      it '『ログイン』が表示される' do
-        expect(response.body).to include "ログイン"
+      it '『Login』が表示される' do
+        expect(response.body).to include "Login"
       end
     end
   end
