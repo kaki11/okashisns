@@ -1,7 +1,9 @@
 // form
-// .form-wrapper {
-//   text-align: center;
-// }
+.form-wrapper {
+	margin: 0 auto;
+	width: 500px;
+	text-align: center;
+}
 
 .form-title {
   padding-bottom: 30px;
@@ -24,14 +26,6 @@
   outline: none;
 }
 
-.form-control {
-	width: 30%;
-}
-
-.login-form {
-	width: 500px;
-}
-
 .form-group a {
   text-decoration: none;
   color: #666;
@@ -40,7 +34,6 @@
 .form-group a:hover {
   color: #ed693b
 }
-
 
 // alert
 

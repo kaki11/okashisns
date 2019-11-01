@@ -9,13 +9,13 @@
         <div class="form-group">
           <%= form_for(:session, url: login_path) do |f| %> 
 
-            <%= f.email_field :email, placeholder: "メールアドレス", class: "form-control d-block", id: "session_email"%>
+            <%= f.email_field :email, placeholder: "メールアドレス", class: "form-control", id: "session_email"%>
 
-            <%= f.password_field :password, placeholder: "パスワード", class: "form-control d-block", id: "session_password" %>
+            <%= f.password_field :password, placeholder: "パスワード", class: "form-control", id: "session_password" %>
 
             <%= f.submit "ログイン", class: "btn btn-info" %>
           <% end %>
-          <p><%= link_to "新規登録はこちら", signup_path %></p>
+          <p class="pt-3"><%= link_to "新規登録はこちら", signup_path %></p>
 
         </div>
       </div>

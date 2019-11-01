@@ -1,11 +1,15 @@
-<% if logged_in? %>
-<div class="user-menu shadow p-3 mb-5 bg-white rounded">
-  <div class="menu">menu</div>
-    <%= link_to "投稿する", new_micropost_path %>
-    <%= link_to "プロフィール編集", "#" %>
-    <%= link_to "お気に入り", "#" %>
+<div class="menus">
+  <% if logged_in? %>
+  <div class="user-menu shadow p-3 mb-5 bg-white rounded">
+    <div class="categorys">menu</div>
+      <%= link_to "投稿する", new_micropost_path %>
+      <%= icon('fas', 'cookie')%>
+      <%= link_to "プロフィール編集", "#" %>
+      <%= icon('fas', 'cookie-bite')%>
+      <%= link_to "お気に入り", "#" %>
+  </div>
+  <% end%>
 </div>
-<% end%>
 
 <div class="profile text-center pb-5">
   <p class="name"><%= @user.name %></p>
@@ -15,7 +19,7 @@
   / フォロワー
   <%= link_to "5", "#" %>
   
-<% if logged_in? %>
+<% unless current_user?(@user) %>
   <p class="mt-3"><%= link_to "フォローする", "#" %></p>
 <% end%>
 
