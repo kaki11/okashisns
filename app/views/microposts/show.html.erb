@@ -31,7 +31,7 @@
         <%= link_to micropost_path(@micropost), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
           <%= icon('fas', 'trash')%>
         <% end %>
-        <%= link_to "#" do %>
+        <%= link_to edit_micropost_path(@micropost) do %>
           <%= icon('far', 'edit')%>
         <% end %>
 

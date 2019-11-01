@@ -1,13 +1,13 @@
 <div class="form-wrapper">
 
   <div class="shadow p-5 bg-white">
-    <div class="form-title">new</div>
+    <div class="form-title">edit</div>
 
       <div class="row">
         <div class="col-md-12 col-md-offset-12">
 
           <div class="form-group">
-            <%= form_for(@micropost) do |f| %>
+            <%= form_for @micropost, method: :patch do |f| %>
               <%= render 'shared/error_messages', object: f.object %> 
 
               <%= f.text_field :title, placeholder: "タイトル", class: "form-control" %>
