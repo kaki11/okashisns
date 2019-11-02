@@ -13,7 +13,7 @@
 
 <div class="profile text-center pb-5">
   <p class="name"><%= @user.name %></p>
-  <%= icon('fas', 'heart')%>20
+  <%= icon('fas', 'heart')%><%= @favorites_count %>
   / フォロー
   <%= link_to "1", "#" %>
   / フォロワー
