@@ -4,7 +4,7 @@
     <div class="categorys">menu</div>
       <%= link_to "投稿する", new_micropost_path %>
       <%= icon('fas', 'cookie')%>
-      <%= link_to "お気に入り", "#" %>
+      <%= link_to "お気に入り", favorites_path %>
       <%= icon('fas', 'cookie-bite')%>
       <%= link_to "アカウント編集", edit_user_path(@user) %>
   </div>
@@ -13,7 +13,7 @@
 
 <div class="profile text-center pb-5">
   <p class="name"><%= @user.name %></p>
-  <%= icon('fas', 'heart')%>20
+  <%= icon('fas', 'heart')%><%= @favorites_count %>
   / フォロー
   <%= link_to "1", "#" %>
   / フォロワー

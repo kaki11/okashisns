@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts
+    @favorites_count = Favorite.where(micropost_id: @microposts.ids).count
   end
 
   def new
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
       flash[:success] = "とうろくが完了しました！"
       redirect_to @user
     else
-      render 'new'
+      render :new
     end
   end
 
