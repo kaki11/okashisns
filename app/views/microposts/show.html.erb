@@ -85,9 +85,11 @@
       <% @comments.each do |comment| %>
         <div class="border-bottom">
           <div>
-            
-
-
+            <% if comment.user_id.present? %>
+              <%= link_to comment.user.name, @micropost.user %>
+            <% else %>
+              名無しさん
+            <% end %>
           </div>
           <div>
             <%= comment.content %>
