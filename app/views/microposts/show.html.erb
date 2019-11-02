@@ -6,7 +6,7 @@
     </div>
 
     <div class="date text-right">
-      <%= icon('fas', 'heart')%><%= @micropost.favorites.count %>
+      <%= icon('fas', 'star')%><%= @micropost.favorites.count %>
       <%= icon('fas', 'comment')%><%= @micropost.comments.count %>
     </div>
     <div class="date text-right">
@@ -58,11 +58,11 @@
         <div class="page-link text-secondary d-inline-block rounded mr-1">
           <% if !@micropost.favorite_users.include?(current_user) %>
             <%= link_to favorites_path(micropost_id: @micropost.id), method: :post do %>
-              <%= icon('fas', 'heart')%>いいね！
+              <%= icon('fas', 'star')%>お気に入り
             <% end %>
           <% else %>
             <%= link_to favorite_path(micropost_id: @micropost.id), method: :delete do %>
-              <%= icon('fas', 'heart')%>いいね！済み
+              <%= icon('fas', 'star')%>登録済み
             <% end %>
           <% end %>
         </div>
@@ -84,6 +84,10 @@
 
       <% @comments.each do |comment| %>
         <div class="border-bottom">
+          <div>
+
+            [<%= link_to @micropost.user.name, @micropost.user %>]
+          </div>
           <div>
             <%= comment.content %>
           </div>
