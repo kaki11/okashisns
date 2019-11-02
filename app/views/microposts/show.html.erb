@@ -31,40 +31,49 @@
   </div>
 
   <div class="right-contents shadow p-5 bg-white ml-3">
-    <div class="delete-link">
-      <% if current_user?(@micropost.user) %>
-
-        <%= link_to micropost_path(@micropost), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
-          <%= icon('fas', 'trash')%>
-        <% end %>
-        <%= link_to edit_micropost_path(@micropost) do %>
-          <%= icon('far', 'edit')%>
-        <% end %>
-
-      <% end %>
-    </div>
-
-    <%= link_to @micropost.user.name, @micropost.user %>さんの投稿
-    <div class="btn-group pb-3 pt-3">
-      <div class="page-link text-secondary d-inline-block rounded mr-1">
-      <% if !@micropost.favorite_users.include?(current_user) %>
-        <%= link_to favorites_path(micropost_id: @micropost.id), method: :post do %>
-          <%= icon('fas', 'heart')%>いいね！
-        <% end %>
-      <% else %>
-        <%= link_to favorite_path(micropost_id: @micropost.id), method: :delete do %>
-          <%= icon('fas', 'heart')%>いいね！済み
-        <% end %>
-      <% end %>
+      <%# ログイン中のユーザーメニュー %>
+    <% if current_user?(@micropost.user) %>
+      <div>
+        <%= link_to @micropost.user.name, @micropost.user %>
       </div>
-      
-      <div class="page-link text-secondary d-inline-block rounded mr-1">
-        <%= icon('fas', 'share')%>シェア
+      <div class="btn-group pb-3 pt-3">
+        <div class="page-link text-secondary d-inline-block rounded mr-1">
+          <%= link_to edit_micropost_path(@micropost) do %>
+            <%= icon('far', 'edit')%>編集する
+          <% end %>
+        </div>
+        <div class="page-link text-secondary d-inline-block rounded mr-1">
+          <%= link_to micropost_path(@micropost), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+            <%= icon('fas', 'trash')%>削除する
+          <% end %>
+        </div>
       </div>
-      <div class="page-link text-secondary d-inline-block rounded">
-        <%= icon('fas', 'comment')%>コメント
+      <%# ログインしていないユーザーメニュー %>
+    <% else %>
+      <div>
+        <%= link_to @micropost.user.name, @micropost.user %>さんの投稿
       </div>
-    </div>
+      <div class="btn-group pb-3 pt-3">
+        <div class="page-link text-secondary d-inline-block rounded mr-1">
+          <% if !@micropost.favorite_users.include?(current_user) %>
+            <%= link_to favorites_path(micropost_id: @micropost.id), method: :post do %>
+              <%= icon('fas', 'heart')%>いいね！
+            <% end %>
+          <% else %>
+            <%= link_to favorite_path(micropost_id: @micropost.id), method: :delete do %>
+              <%= icon('fas', 'heart')%>いいね！済み
+            <% end %>
+          <% end %>
+        </div>
+        <div class="page-link text-secondary d-inline-block rounded mr-1">
+          <%= icon('fas', 'share')%>シェア
+        </div>
+        <div class="page-link text-secondary d-inline-block rounded">
+          <%= icon('fas', 'comment')%>コメント
+        </div>
+      </div>
+
+    <% end %>
 
     <div class="comment-list">
       こめんと
