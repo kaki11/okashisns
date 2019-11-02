@@ -15,6 +15,7 @@ class MicropostsController < ApplicationController
   end
 
   def create
+    # モデルを関連付けしたときにbuildを使う newのエイリアス
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
       flash[:success] = "投稿しました"
@@ -33,7 +34,6 @@ class MicropostsController < ApplicationController
     if @micropost.update_attributes!(micropost_params)
       flash[:success] = '編集しました'
       redirect_to micropost_path(@micropost)
-      
     else
       render :edit
     end
@@ -44,9 +44,9 @@ class MicropostsController < ApplicationController
         @micropost.destroy
         flash[:success] = "削除しました"
         redirect_to current_user
-      else
-        flash.now[:danger] = "削除出来ません"
-      end
+    else
+      flash.now[:danger] = "削除出来ません"
+    end
   end
 
   private

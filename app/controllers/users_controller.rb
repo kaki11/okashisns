@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       flash[:success] = "とうろくが完了しました！"
       redirect_to @user
     else
-      render 'new'
+      render :new
     end
   end
 
