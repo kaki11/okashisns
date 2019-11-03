@@ -40,12 +40,12 @@
       <div class="btn-group pb-3 pt-3">
         <div class="page-link text-secondary d-inline-block rounded mr-1">
           <%= link_to edit_micropost_path(@micropost) do %>
-            <%= icon('far', 'edit')%>編集する
+            <%= icon('far', 'edit')%>投稿を編集する
           <% end %>
         </div>
         <div class="page-link text-secondary d-inline-block rounded mr-1">
           <%= link_to micropost_path(@micropost), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
-            <%= icon('fas', 'trash')%>削除する
+            <%= icon('fas', 'trash')%>投稿を削除する
           <% end %>
         </div>
       </div>
@@ -79,14 +79,15 @@
       <%= form_for(@comment) do |f| %>
         <%= f.text_field :content %>
         <%= f.hidden_field :micropost_id, value: @micropost.id %>
-        <%= f.submit "コメントする", class: "page-link text-secondary d-inline-block rounded" %>
+        <%= f.submit "コメントする", data: { confirm: "削除できるのは投稿管理者のみです。投稿してよろしいですか？" },
+                                           class: "page-link text-secondary d-inline-block rounded" %>
       <% end %>
 
       <% @comments.each do |comment| %>
         <div class="border-bottom">
           <div>
             <% if comment.user_id.present? %>
-              <%= link_to comment.user.name, @micropost.user %>
+              <%= link_to comment.user.name, comment.user %>
             <% else %>
               名無しさん
             <% end %>
@@ -95,6 +96,13 @@
             <%= comment.content %>
           </div>
           <div class="text-right">
+            <%# コメント削除機能 %>
+            <%# if current_user?(@micropost.user) || comment.user.id == current_user.id %>
+            <% if current_user?(@micropost.user) %>
+              <%= link_to comment_path(comment), method: :delete, data: { confirm: "本当に削除しますか？" } do %>
+                <%= icon('fas', 'trash')%>
+              <% end %>
+            <% end %>
             <%= comment.created_at.strftime("%Y/%m/%d %H:%M") %>
           </div>
         </div>
