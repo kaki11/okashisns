@@ -24,12 +24,21 @@
 
         <div class="col-lg-12 col-md-12">
           <div class="top-contents mt-5">
-            <h5 class="main-title">おすすめレシピ</h5>
+            <h5 class="main-title">人気のレシピ</h5>
               <div class="pict-wrapper">
 
-                <%= link_to image_tag("dami-.png", size: '200' ), "#", class: "dummy" %>
-                <%= link_to image_tag("dami-.png", size: '200' ), "#", class: "dummy" %>
-                <%= link_to image_tag("dami-.png", size: '200' ), "#", class: "dummy" %>
+                <% @sweets_recipes.each do |recipe| %>
+                  <div class="pict shadow bg-white rounded p-1 m-1">
+                    <%= link_to image_tag(recipe.food_image_url, size: '150'), recipe.url %>
+                    <%#= recipe.title %>
+                  </div>
+                <% end %>
+                <% @pan_recipes.each do |recipe| %>
+                  <div class="pict shadow bg-white rounded p-1 m-1">
+                    <%= link_to image_tag(recipe.food_image_url, size: '150'), recipe.url %>
+                    <%#= recipe.title %>
+                  </div>
+                <% end %>
 
               </div>
           </div>
@@ -40,7 +49,3 @@
 
   </div>
 </div>
-
-<%= @imageUrl %>
-<%= @recipeTitle %>
-<%= @recipeUrl %>
