@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts
+    @microposts = @user.microposts.page(params[:page]).per(12)
     @favorites_count = Favorite.where(micropost_id: @microposts.ids).count
   end
 
