@@ -6,6 +6,21 @@ body {
   font-family:'Bad Script', cursive;
 }
 
+.main-box a{
+  color: #666;
+  text-decoration: none;
+}
+
+.more {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.more:hover a{
+  color: #ed693b;
+}
+
+
 // side-bar
 .categorys {
   color: #ed693b;

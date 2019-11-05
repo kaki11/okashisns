@@ -10,17 +10,24 @@
         <div class="col-lg-12 col-md-12">
           <div class="top-contents">
             <h5 class="main-title">最近の投稿</h5>
-              <div class="pict-wrapper">
-                
-                <% @microposts.each do |micropost| %>
-                <div class="pict shadow bg-white rounded p-1 m-1">
-                <%= link_to image_tag(micropost.picture.url), micropost_path(micropost.id) %>
-                </div>
-                <% end %>
-                <%= link_to "もっと見る", microposts_path %>
-  
+            <div class="pict-wrapper">
+              
+              <% @microposts.each do |micropost| %>
+              <div class="pict shadow bg-white rounded p-1 m-1">
+              <%= link_to image_tag(micropost.picture.url), micropost_path(micropost.id) %>
               </div>
+              <% end %>
+
+            </div>
+            <div class="more">
+              <%= link_to  microposts_path do%>
+                <%= icon('far', 'hand-point-right')%>
+              <% end %>
+
+              <%= link_to "more", microposts_path %>
+            </div>
           </div>
+            
         </div>
 
         <div class="col-lg-12 col-md-12">
