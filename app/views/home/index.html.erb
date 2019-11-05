@@ -17,6 +17,7 @@
                 <%= link_to image_tag(micropost.picture.url), micropost_path(micropost.id) %>
                 </div>
                 <% end %>
+                <%= link_to "もっと見る", microposts_path %>
   
               </div>
           </div>
@@ -27,13 +28,7 @@
             <h5 class="main-title">人気のレシピ</h5>
               <div class="pict-wrapper">
 
-                <% @sweets_recipes.each do |recipe| %>
-                  <div class="pict shadow bg-white rounded p-1 m-1">
-                    <%= link_to image_tag(recipe.food_image_url, size: '150'), recipe.url %>
-                    <%#= recipe.title %>
-                  </div>
-                <% end %>
-                <% @pan_recipes.each do |recipe| %>
+                <% @recipe_ranking.each do |recipe| %>
                   <div class="pict shadow bg-white rounded p-1 m-1">
                     <%= link_to image_tag(recipe.food_image_url, size: '150'), recipe.url %>
                     <%#= recipe.title %>
