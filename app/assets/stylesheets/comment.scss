@@ -1,0 +1,73 @@
+.comment-form {
+  width: 200px;
+  display: inline-block;
+}
+.user-name {
+  color: #aaaaaa;;
+}
+.date {
+  color: #aaaaaa;
+  font-size: 12px;
+}
+.border {
+  border-bottom: 1px solid #dee2e6;
+}
+.comment {
+  color: #ed693b;
+}
+
+// pagination
+
+.pagination {
+  padding: 20px;
+  justify-content: center;
+}
+.pagination>li {
+  color: #ed693b;
+}
+
+
+.pagination>li>a {
+  border: none;
+  margin: 0 10px;
+  background-color: transparent;
+  color: #666;
+  
+}
+
+.pagination>.active>.page-link {
+  background-color: #d8a598;
+
+  border-radius: 5px;
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 5px;
+  background-color: transparent;
+  color: #ed693b;
+}
+
+
+
+
+
+
+
+
+
+// .pagination>li>a {          
+//   border: none;     /*枠線をなくす*/
+//   color: #696969;   /*文字の色を変える*/
+// }
+
+// /* 表示しているページ番号のデザイン */
+// .pagination>.active>a {     
+//   background: #93c9ff;     /*背景の色を変える*/
+//   border-radius: 15px;     /*角を丸くする*/
+// }
+
+// /*ホバー時のデザイン*/
+// .pagination>li>a:hover {        
+//   border-radius: 15px;    /*角を丸くする*/
+// }

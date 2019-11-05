@@ -3,12 +3,12 @@ class MicropostsController < ApplicationController
   before_action :correct_user,   only: :destroy
 
   def index
-    @microposts = Microposts.all.includes(:favorite_users)
+    @microposts = Micropost.all.page(params[:page]).per(10)
   end
 
   def show
     @micropost = Micropost.find(params[:id])
-    @comments = @micropost.comments.all
+    @comments = @micropost.comments.all.page(params[:page]).per(10)
     @comment = Comment.new
   end
 
