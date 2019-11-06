@@ -22,9 +22,9 @@ http://3.115.165.219/
 
 
 ## 使用技術
-Ruby on Rails
-Mysql
-capistrano
-AWS（EC2+S3）
-RSpec
+ - Ruby on Rails
+ - Mysql
+ - capistrano
+ - AWS（EC2+S3）
+ - RSpec
 
