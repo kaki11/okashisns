@@ -1,0 +1,17 @@
+<% if @search_microposts.blank?%>
+<p>『<%= params[:q][:title_or_content_cont] %>』の検索結果はありません。</p>
+
+<% else %>
+<p class="">『<%= params[:q][:title_or_content_cont] %>』の検索結果</p>
+<div class="pict-wrapper">
+  <% @search_microposts.each do |micropost| %>
+    <div class="pict shadow bg-white rounded p-1 m-1">
+      <%= link_to image_tag(micropost.picture.url), micropost_path(micropost.id)  if micropost.picture? %>
+    </div>
+  <% end %>
+</div>
+<%= paginate @search_microposts %>
+
+<% end %>
+
+
