@@ -51,6 +51,9 @@ class MicropostsController < ApplicationController
     end
   end
 
+  def search
+  end
+
   private
 
     def micropost_params
