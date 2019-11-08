@@ -18,10 +18,14 @@
   <%= link_to "1", "#" %>
   / フォロワー
   <%= link_to "5", "#" %>
-  
-<% unless current_user?(@user) %>
-  <p class="mt-3"><%= link_to "フォローする", "#" %></p>
-<% end%>
+
+  <% if current_user.present? %>
+    <% if current_user.followings.include?(@user) %>
+       <p class="mt-3"><%= link_to "フォローを外す", relationship_path(follow_id: @user.id), method: :delete %></p>
+    <% else %>
+     <p class="mt-3"><%= link_to "フォローする", relationships_path(follow_id: @user.id), method: :post %></p>
+    <% end %>
+  <% end %>
 
 </div>
 

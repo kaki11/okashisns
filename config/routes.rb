@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :microposts
   resources :favorites, only: [:index, :create, :destroy]
   resources :comments, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   get    '/search',   to: 'microposts#search'
 end
