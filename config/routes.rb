@@ -5,7 +5,14 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  resources :users
+  
+  resources :users do
+    # /users/:id/following のルーティングを作る
+    member do
+     get :following, :followers
+    end
+  end
+  
   resources :microposts
   resources :favorites, only: [:index, :create, :destroy]
   resources :comments, only: [:create, :destroy]

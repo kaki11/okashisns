@@ -15,15 +15,17 @@
   <p class="name"><%= @user.name %></p>
   <%= icon('fas', 'star')%><%= @favorites_count %>
   / フォロー
-  <%= link_to "1", "#" %>
+  <%= link_to @user.followings.count, following_user_path(@user) %>
   / フォロワー
-  <%= link_to "5", "#" %>
+  <%= link_to @user.followers.count, followers_user_path(@user) %>
 
   <% if current_user.present? %>
-    <% if current_user.followings.include?(@user) %>
-       <p class="mt-3"><%= link_to "フォローを外す", relationship_path(follow_id: @user.id), method: :delete %></p>
-    <% else %>
-     <p class="mt-3"><%= link_to "フォローする", relationships_path(follow_id: @user.id), method: :post %></p>
+    <% if current_user != @user %>
+      <% if current_user.followings.include?(@user) %>
+        <p class="mt-3"><%= link_to "フォローを外す", relationship_path(follow_id: @user.id), method: :delete %></p>
+      <% else %>
+        <p class="mt-3"><%= link_to "フォローする", relationships_path(follow_id: @user.id), method: :post %></p>
+      <% end %>
     <% end %>
   <% end %>
 
