@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   get    '/search',   to: 'microposts#search'
+  get  '/about',  to: 'home#about'
 end

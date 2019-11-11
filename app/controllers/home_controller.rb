@@ -7,6 +7,9 @@ class HomeController < ApplicationController
     recipe_ranking_api
   end
 
+  def about
+  end
+
   def recipe_ranking_api
     res1 = RakutenWebService::Recipe.ranking(category_id = 21)
     res2 = RakutenWebService::Recipe.ranking(category_id = 22)
@@ -15,8 +18,9 @@ class HomeController < ApplicationController
     pan_recipes = res2.map{|recipe| recipe}
     # 配列をまとめる
     recipes = sweets_recipes.push(pan_recipes)
-    # 親配列に全ての要素を並べる→ランダムに並び替える
-    @recipe_ranking = recipes.flatten!.sort_by{rand}
+    # 親配列に全ての要素を並べる →ランダムに並び替える
+    # @recipe_ranking = recipes.flatten!.sort_by{rand}
+    @recipe_ranking = recipes.flatten!.sample(5)
   end
 
 end

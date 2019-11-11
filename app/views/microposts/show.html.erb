@@ -18,11 +18,12 @@
       <%= @micropost.updated_at.strftime("%Y/%m/%d %H:%M") %>
       <% end %>
     </div>
-     <div class="date text-right">category:
+    <div class="date text-right">
+      <%= icon('fas', 'tag')%>
       <span class="float-right category-list d-inline-block">
-      <%= link_to @micropost.category.name, category_micropost_path(@micropost.category.id) %>
+        <%= link_to @micropost.category.name, category_micropost_path(@micropost.category.id) %>
       </span>
-      </div>
+    </div>
 
     <div class="pict-group">
 
