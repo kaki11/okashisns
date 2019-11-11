@@ -72,12 +72,22 @@
             <% end %>
           <% end %>
         </div>
-        <div class="page-link text-secondary d-inline-block rounded mr-1">
-          <%= icon('fas', 'share')%>シェア
-        </div>
       </div>
-
     <% end %>
+
+    <div class="share">
+      <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{@micropost.title}", target: "_blank", class: "share-list" do %>
+          <%= icon('fab', 'twitter')%>
+      <% end %>
+    
+      <%= link_to "http://line.me/R/msg/text/?#{request.url}&text=#{@micropost.title}", target: "_blank", class: "share-list" do %>
+        <%= icon('fab', 'line')%>
+      <% end %>
+  
+      <%= link_to "http://pinterest.com/pin/create/button/?url=#{request.url}&media=#{@micropost.picture.url}&description=#{@micropost.title}", target: "_blank", class: "share-list" do %>
+        <%= icon('fab', 'pinterest')%>
+      <% end %>
+    </div>
 
     <div class="comment-list">
       <div class="comment pb-5">
