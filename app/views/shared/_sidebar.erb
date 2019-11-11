@@ -2,40 +2,29 @@
   <p class="category">CATEGORY</p>
 
   <span class="categorys">Sweets</span>
-  <div class="category-list">
-    <%= link_to "クッキー", "#", class: ""%>
-    <%= link_to "タルト", "#", class: ""%>
-    <%= link_to "パウンドケーキ", "#"%>
-    <%= link_to "マフィン", "#"%>
-    <%= link_to "スコーン", "#", class: ""%>
-    <%= link_to "ケーキ", "#"%>
-    <%= link_to "チーズケーキ", "#"%>
-    <%= link_to "パイ生地のお菓子", "#"%>
-    <%= link_to "チョコレートのお菓子", "#"%>
-    <%= link_to "その他のお菓子", "#", class: ""%>
-  </div>
+  <% @sweets_categories.each do |c| %>
+    <div class="category-list">
+      <%= link_to c.name, "#" %>
+    </div>
+  <% end%>
+
 
   <p class="category"></p>
 
   <span class="categorys">Bread</span>
-  <div class="category-list">
-    <%= link_to "食パン", "#", class: ""%>
-    <%= link_to "クロワッサン", "#", class: ""%>
-    <%= link_to "ベーグル", "#"%>
-    <%= link_to "ハード系", "#"%>
-    <%= link_to "菓子パン", "#", class: ""%>
-    <%= link_to "自家製酵母・天然酵母", "#"%>
-    <%= link_to "その他のパン", "#"%>
-    <%= link_to "パイ生地のお菓子", "#"%>
-    <%= link_to "チョコレートのお菓子", "#"%>
-  </div>
+  <% @bread_categories.each do |c| %>
+    <div class="category-list">
+      <%= link_to c.name, "#" %>
+    </div>
+  <% end%>
 
   <p class="category"></p>
 
   <span class="categorys">Other</span>
-  <div class="category-list">
-    <%= link_to "料理", "#"%>
-    <%= link_to "ドリンク", "#"%>
-  </div>
-
+  <% @other_categories.each do |c| %>
+    <div class="category-list">
+      <%= link_to c.name, "#" %>
+    </div>
+  <% end%>
+  
 </div>

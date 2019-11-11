@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
   def index
+    @sweets_categories = Category.limit(10)
+    @bread_categories = Category.limit(7).offset(10)
+    @other_categories = Category.offset(17)
     @microposts = Micropost.all.limit(8)
     recipe_ranking_api
   end
