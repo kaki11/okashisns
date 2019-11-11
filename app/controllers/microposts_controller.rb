@@ -54,6 +54,11 @@ class MicropostsController < ApplicationController
   def search
   end
 
+  def category
+    @category = Category.find(params[:id])
+    @category_microposts = Micropost.where(category_id: @category.id).page(params[:page]).per(10)
+  end
+
   private
 
     def micropost_params
