@@ -42,7 +42,8 @@ ActiveRecord::Schema.define(version: 2019_11_10_024141) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "picture"
-    t.string "category"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_microposts_on_category_id"
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_11_10_024141) do
   end
 
   add_foreign_key "comments", "microposts"
+  add_foreign_key "microposts", "categories"
   add_foreign_key "microposts", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follow_id"

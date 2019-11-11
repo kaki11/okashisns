@@ -3,6 +3,7 @@ class Micropost < ApplicationRecord
   has_many :favorites
   has_many :favorite_users, through: :favorites, source: 'user'
   has_many :comments, dependent: :destroy
+  belongs_to :category
   default_scope -> { order(created_at: :desc) }
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
