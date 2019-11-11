@@ -18,14 +18,19 @@
       <%= @micropost.updated_at.strftime("%Y/%m/%d %H:%M") %>
       <% end %>
     </div>
+     <div class="date text-right">category:
+      <span class="float-right category-list d-inline-block">
+      <%= link_to @micropost.category.name, category_micropost_path(@micropost.category.id) %>
+      </span>
+      </div>
 
     <div class="pict-group">
 
-      <h3 class="pict-title pb-2">
+      <h3 class="pict-title pb-5">
         <%= @micropost.title %>
       </h3>
       <div class="pict-content pb-4">
-        <%= @micropost.content %>
+        <%= simple_format(@micropost.content) %>
       </div>
 
     </div>
