@@ -3,6 +3,7 @@ class MicropostsController < ApplicationController
   before_action :correct_user,   only: :destroy
 
   def index
+    @microposts_all = Micropost.all
     @microposts = Micropost.all.page(params[:page]).per(10)
   end
 
