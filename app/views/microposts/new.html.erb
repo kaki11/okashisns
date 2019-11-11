@@ -10,18 +10,11 @@
             <%= form_for(@micropost) do |f| %>
               <%= render 'shared/error_messages', object: f.object %> 
 
-              <%= f.text_field :title, placeholder: "タイトル", class: "form-control" %>
-
-              <%= f.text_area :content, placeholder: "内容", class: "form-control" %>
-
               <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "カテゴリー選択"%> 
 
+              <%= f.text_field :title, placeholder: "タイトル", class: "form-control" %>
 
-
-
-
-
-
+              <%= f.text_area :content, placeholder: "内容", rows: "10", class: "form-control" %>
 
               <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png", class: "form-control" %>
 

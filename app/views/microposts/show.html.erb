@@ -18,14 +18,20 @@
       <%= @micropost.updated_at.strftime("%Y/%m/%d %H:%M") %>
       <% end %>
     </div>
+    <div class="date text-right">
+      <%= icon('fas', 'tag')%>
+      <span class="float-right category-list d-inline-block">
+        <%= link_to @micropost.category.name, category_micropost_path(@micropost.category.id) %>
+      </span>
+    </div>
 
     <div class="pict-group">
 
-      <h3 class="pict-title pb-2">
+      <h3 class="pict-title pb-5">
         <%= @micropost.title %>
       </h3>
       <div class="pict-content pb-4">
-        <%= @micropost.content %>
+        <%= simple_format(@micropost.content) %>
       </div>
 
     </div>
@@ -66,12 +72,22 @@
             <% end %>
           <% end %>
         </div>
-        <div class="page-link text-secondary d-inline-block rounded mr-1">
-          <%= icon('fas', 'share')%>シェア
-        </div>
       </div>
-
     <% end %>
+
+    <div class="share">
+      <%= link_to "https://twitter.com/share?url=#{request.url}&text=#{@micropost.title}", target: "_blank", class: "share-list" do %>
+          <%= icon('fab', 'twitter')%>
+      <% end %>
+    
+      <%= link_to "http://line.me/R/msg/text/?#{request.url}&text=#{@micropost.title}", target: "_blank", class: "share-list" do %>
+        <%= icon('fab', 'line')%>
+      <% end %>
+  
+      <%= link_to "http://pinterest.com/pin/create/button/?url=#{request.url}&media=#{@micropost.picture.url}&description=#{@micropost.title}", target: "_blank", class: "share-list" do %>
+        <%= icon('fab', 'pinterest')%>
+      <% end %>
+    </div>
 
     <div class="comment-list">
       <div class="comment pb-5">

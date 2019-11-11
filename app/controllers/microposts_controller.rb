@@ -3,6 +3,7 @@ class MicropostsController < ApplicationController
   before_action :correct_user,   only: :destroy
 
   def index
+    @microposts_all = Micropost.all
     @microposts = Micropost.all.page(params[:page]).per(10)
   end
 
@@ -52,6 +53,11 @@ class MicropostsController < ApplicationController
   end
 
   def search
+  end
+
+  def category
+    @category = Category.find(params[:id])
+    @category_microposts = Micropost.where(category_id: @category.id).page(params[:page]).per(10)
   end
 
   private

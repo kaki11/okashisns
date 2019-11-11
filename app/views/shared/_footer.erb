@@ -5,33 +5,26 @@
       <div class="col-lg-12 col-md-12">
         <div class="footer-links">
           <li>
-            <%= link_to "#" do %>
-              TOP
+            <%= link_to root_path do %>
+              <%= icon('fas', 'caret-right')%>top
             <% end %>
           </li>
 
           <li>
-            <%= link_to "#" do %>
-              ABOUT
+            <%= link_to about_path do %>
+              <%= icon('fas', 'caret-right')%>about
             <% end %>
           </li>
 
           <li>
-            <%= link_to "#" do %>
-              INFO
+            <%= icon('fas', 'caret-right')%>creator
+            <%= link_to "https://github.com/kaki11" do %>
+              <%= icon('fab', 'github')%>
             <% end %>
-          </li> 
+            <%= link_to "https://twitter.com/haruuxxx15" do %>
+              <%= icon('fab', 'twitter')%>
+            <% end %>
 
-          <li>
-            <%= link_to "#" do %>
-              Link
-            <% end %>
-          </li> 
-
-          <li>
-            <%= link_to "#" do %>
-              Link
-            <% end %>
           </li> 
 
         </div>

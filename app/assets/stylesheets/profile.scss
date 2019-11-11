@@ -1,10 +1,18 @@
 .profile a {
   text-decoration: none;
-  color: #666;
+  color: #d8a598;
 }
 
 .profile a:hover {
   color: #ed693b
+}
+p>a {
+  text-decoration: none;
+  color: #666;
+}
+p>a:hover {
+  text-decoration: none;
+  color: #d8a598;
 }
 
 
@@ -44,3 +52,24 @@
   color: #ed693b;
 }
 
+// about
+.about span{
+  color: #ed693b;
+}
+.about li{
+  list-style: none;
+  font-size: 14px;
+}
+
+.reference {
+  font-size: 14px;
+}
+
+.reference a{
+  text-decoration: none;
+  font-size: 14px;
+  color: #666;
+}
+.reference a:hover{
+  color: #ed693b;
+}

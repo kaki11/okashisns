@@ -1,5 +1,10 @@
+<% if @user.followers.blank?%>
+  <p class="profile"><%= link_to @user.name, user_path(@user.id) %>さんのフォロワーはまだいません。</p>
+<% else %>
+  <p><%= link_to @user.name, user_path(@user.id) %>さんのフォロワーは<%= @user.followers.count %>人です。</p>
 <% @user.followers.each do |follower| %>
-    <div class="">
-      <%= link_to follower.name, user_path(follower.id) %>
-    </div>
+  <div class="profile">
+    <%= link_to follower.name, user_path(follower.id) %>
+  </div>
   <% end %>
+<% end %>
