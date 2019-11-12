@@ -14,13 +14,16 @@ http://3.115.165.219/
  - 楽天APIを使ったレシピランキング表示
  - 検索機能
  - 単体テスト
+ - circleCIでの自動テスト
+ 
+[![CircleCI](https://circleci.com/gh/kaki11/okashisns.svg?style=svg)](https://circleci.com/gh/kaki11/okashisns)
 
 
 ###### 実装予定機能
  - LINEログイン連携
  - レシピ投稿
  - 統合テスト
- - circleCIでの自動テスト
+
 
 
 ## 使用技術
