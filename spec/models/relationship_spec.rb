@@ -2,10 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Relationship, type: :model do
   describe '#create' do
-    it 'follow_idがあれば保存できる' do
-      # user_idとfollow_idがあれば保存できる
+    let(:relationship) { build(:relationship) }
+    
+    it 'follow_idがないと保存できない' do
+      expect(relationship).to_not be_valid
     end
 
   end
-
 end
