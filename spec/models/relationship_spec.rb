@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Relationship, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#create' do
+    it 'follow_idがあれば保存できる' do
+      # user_idとfollow_idがあれば保存できる
+    end
+
+  end
+
 end

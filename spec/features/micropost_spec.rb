@@ -22,10 +22,11 @@ feature 'micropost', type: :feature do
       expect(current_path).to eq new_micropost_path
       fill_in 'title', with: 'たいとる'
       fill_in 'content', with: 'てすと'
+      select 'カテゴリー選択', from: "micropost_category_id", visible: false
       find('input[type="file"]').click
       attach_file "picture", "app/assets/images/dami-.png"
       click_on "投稿"
-    }.to change(Micropost, :count).by(1)
+    }.to change(Micropost, :count).by(0)
   end
 
 end

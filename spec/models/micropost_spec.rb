@@ -25,13 +25,13 @@ RSpec.describe Micropost, type: :model do
       it 'pictureがないとき' do
         micropost = build(:micropost, picture: nil)
         micropost.valid?
-        expect(micropost.errors[:picture]).to include("can't be blank")
+        expect(micropost.errors[:picture]).to include("を入力してください")
       end
 
       it 'userがいないとき' do
         micropost = build(:micropost, user_id: nil)
         micropost.valid?
-        expect(micropost.errors[:user]).to include("must exist")
+        expect(micropost.errors[:user]).to include("を入力してください")
       end
 
     end

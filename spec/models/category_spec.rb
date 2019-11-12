@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#create' do
+
+    it "nameがあれば登録できる" do
+    end
+
+    it "同じnameは登録できない" do
+    end
+  end
 end

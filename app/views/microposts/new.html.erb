@@ -10,13 +10,13 @@
             <%= form_for(@micropost) do |f| %>
               <%= render 'shared/error_messages', object: f.object %> 
 
-              <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "カテゴリー選択"%> 
+              <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "カテゴリー選択", id: "category_id" %> 
 
-              <%= f.text_field :title, placeholder: "タイトル", class: "form-control" %>
+              <%= f.text_field :title, placeholder: "タイトル", class: "form-control", id: "title" %>
 
-              <%= f.text_area :content, placeholder: "内容", rows: "10", class: "form-control" %>
+              <%= f.text_area :content, placeholder: "内容", rows: "10", class: "form-control", id: "content" %>
 
-              <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png", class: "form-control" %>
+              <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png", class: "form-control", id: "picture" %>
 
               <%= f.submit "投稿", class: "btn btn-info" %>
 
