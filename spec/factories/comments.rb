@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :comment do
-    content { "MyString" }
-    user { nil }
-    micropost { nil }
+    content { Faker::Games::Pokemon.name }
+
+    user
+    micropost
   end
 end
