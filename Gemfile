@@ -29,6 +29,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'faker', '2.6.0'
   gem 'capybara'
+  gem 'spring-commands-rspec'
 end
 
 group :development do
