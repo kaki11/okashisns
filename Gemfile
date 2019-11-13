@@ -30,6 +30,7 @@ group :development, :test do
   gem 'faker', '2.6.0'
   gem 'capybara'
   gem 'spring-commands-rspec'
+  gem 'rspec_junit_formatter'
 end
 
 group :development do
