@@ -12,11 +12,19 @@
 
               <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "カテゴリー選択"%> 
 
+              <div id="img_field" onClick="$('#file').click()" >
+                <% if @micropost.picture.url.present? %>
+                  <%= image_tag(@micropost.picture.url) %>
+                <% else %>
+                  <%= icon('fas', 'image pr-2')%>画像を選択する<%= icon('fas', 'image pl-2')%>
+                <% end %>
+              </div>
+
+              <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png", class: "file-field", id: "file" %>
+
               <%= f.text_field :title, placeholder: "タイトル", class: "form-control" %>
 
               <%= f.text_area :content, placeholder: "内容", rows: "10", class: "form-control" %>
-
-              <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png", class: "form-control" %>
 
               <%= f.submit "投稿", class: "btn btn-info" %>
 

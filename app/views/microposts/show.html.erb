@@ -94,8 +94,7 @@
         <%= form_for(@comment) do |f| %>
           <%= f.text_field :content, class: "form-control comment-form" %>
           <%= f.hidden_field :micropost_id, value: @micropost.id %>
-          <%= f.submit "コメントする", data: { confirm: "削除できるのは投稿管理者のみです。投稿してよろしいですか？" },
-                                            class: "page-link text-secondary d-inline-block rounded" %>
+          <%= f.submit "コメントする", class: "page-link text-secondary d-inline-block rounded" %>
         <% end %>
       </div>
       <div class="comment pb-3">Comments</div>
