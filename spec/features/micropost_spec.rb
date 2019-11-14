@@ -24,7 +24,7 @@ feature 'micropost', type: :feature do
       fill_in 'content', with: 'てすと'
       select 'カテゴリー選択', from: "micropost_category_id", visible: false
       find('input[type="file"]').click
-      attach_file "picture", "app/assets/images/dami-.png"
+      attach_file "picture", "app/assets/images/dami-.jpg"
       click_on "投稿"
     }.to change(Micropost, :count).by(0)
   end
