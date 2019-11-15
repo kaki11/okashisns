@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
   before_action :logged_in_user
   def index
-    @favorite_microposts = current_user.favorite_microposts.page(params[:page]).per(10)
+    @favorite_microposts = current_user.favorite_microposts.page(params[:page]).per(15)
   end
 
   def create

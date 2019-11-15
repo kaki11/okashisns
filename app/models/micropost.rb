@@ -8,12 +8,22 @@ class Micropost < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
   validates :title, length: { maximum: 50 }
+
   validates :content, length: { maximum: 800 }
   validates :picture, presence: true
   validate  :picture_size
+  validate :no_4_bytes
 
   private
-
+    # 本文に4byte文字を使わないように
+    def no_4_bytes
+        if content.present?
+            chars = content.each_char.select{|c| c.bytes.count >= 4}
+            if chars.size > 0
+                errors.add(:content, "に絵文字(#{chars.join('')})は使用できません。")
+            end
+        end
+    end
     # アップロードされた画像のサイズをバリデーションする
     def picture_size
       if picture.size > 5.megabytes
