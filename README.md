@@ -26,10 +26,12 @@ http://3.115.165.219/
 
 
 
-## 使用技術
- - Ruby on Rails
- - Mysql
- - capistrano
+## 使用技術 -version
+ - Ruby 2.5.1
+ - Ruby on Rails 5.2.3
+ - Mysql 5.7.27
+ - capistrano 
  - AWS（EC2+S3）
- - RSpec
+ - RSpec 
 
+ 
