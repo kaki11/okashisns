@@ -17,9 +17,15 @@
   color: #d8a598;
 }
 
-.header-section a:hover{
+.login-links>a:hover{
   color: #ed693b;
 }
+
+.logo-title {
+	font-size: 30px;
+	font-family:'Bad Script', cursive;
+}
+
 
 // form
 
@@ -30,7 +36,7 @@
 .search-form input[type=text] {
 	font: 15px/24px sans-serif;
 	box-sizing: border-box;
-	width: 100%;
+	width: 80%;
 	margin: 8px 0;
 	padding: 0.3em;
 	transition: 0.3s;
