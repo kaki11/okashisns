@@ -3,7 +3,7 @@ class MicropostsController < ApplicationController
   before_action :correct_user,   only: :destroy
 
   def index
-    @microposts_all = Micropost.all
+    @microposts_count = Micropost.count
     @microposts = Micropost.all.page(params[:page]).per(15)
   end
 
@@ -25,6 +25,7 @@ class MicropostsController < ApplicationController
       redirect_to current_user
     else
       render :new
+      flash.now[:danger] = "投稿できませんでした"
     end
   end
 
@@ -35,10 +36,11 @@ class MicropostsController < ApplicationController
   def update
     @micropost = Micropost.find(params[:id])
     if @micropost.update_attributes!(micropost_params)
-      flash[:success] = '編集しました'
+      flash[:success] = "編集しました"
       redirect_to micropost_path(@micropost)
     else
       render :edit
+      flash.now[:danger] = "編集できませんでした"
     end
   end
 
@@ -48,7 +50,8 @@ class MicropostsController < ApplicationController
         flash[:success] = "削除しました"
         redirect_to current_user
     else
-      flash.now[:danger] = "削除出来ません"
+      flash.now[:danger] = "削除出来ませんでした"
+      redirect_to micropost_path(@micropost)
     end
   end
 
@@ -57,7 +60,8 @@ class MicropostsController < ApplicationController
 
   def category
     @category = Category.find(params[:id])
-    @category_microposts = Micropost.where(category_id: @category.id).page(params[:page]).per(15)
+    @category_count = Micropost.where(category_id: @category.id).count
+    @microposts = Micropost.where(category_id: @category.id).page(params[:page]).per(15)
   end
 
   private
