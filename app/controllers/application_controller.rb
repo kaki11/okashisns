@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_search
   def set_search
-    @search = Micropost.ransack(params[:q]) #ransackメソッド推奨
+    @search = Micropost.ransack(params[:q]) #ransackメソッド
     @search_microposts = @search.result.page(params[:page]).per(15)
   end
 
