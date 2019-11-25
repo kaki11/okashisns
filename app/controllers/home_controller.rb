@@ -1,8 +1,7 @@
 class HomeController < ApplicationController
+  # modelにかきましょう
   def index
-    @sweets_categories = Category.limit(10)
-    @bread_categories = Category.limit(7).offset(10)
-    @other_categories = Category.offset(17)
+    Category.set(category)
     @microposts = Micropost.all.limit(8)
     recipe_ranking_api
   end
@@ -19,7 +18,6 @@ class HomeController < ApplicationController
     # 配列をまとめる
     recipes = sweets_recipes.push(pan_recipes)
     # 親配列に全ての要素を並べる →ランダムに並び替える
-    # @recipe_ranking = recipes.flatten!.sort_by{rand}
     @recipe_ranking = recipes.flatten!.sample(5)
   end
 

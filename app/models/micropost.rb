@@ -17,17 +17,17 @@ class Micropost < ApplicationRecord
   private
     # 本文に4byte文字を使わないように
     def no_4_bytes
-        if content.present?
-            chars = content.each_char.select{|c| c.bytes.count >= 4}
-            if chars.size > 0
-                errors.add(:content, "に絵文字(#{chars.join('')})は使用できません。")
-            end
+      if content.present?
+        chars = content.each_char.select{|c| c.bytes.count >= 4}
+        if chars.size > 0
+          errors.add(:content, "に絵文字(#{chars.join('')})は使用できません。")
         end
+      end
     end
     # アップロードされた画像のサイズをバリデーションする
     def picture_size
       if picture.size > 5.megabytes
-        errors.add(:picture, "should be less than 5MB")
+        errors.add(:picture, "画像サイズ5MB以上は投稿できません")
       end
     end
 end
