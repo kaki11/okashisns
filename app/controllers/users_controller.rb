@@ -15,10 +15,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "とうろくが完了しました！"
+      flash[:success] = "登録が完了しました！"
       redirect_to @user
     else
       render :new
+      flash.now[:danger] = "登録出来ませんでした"
     end
   end
 
@@ -29,9 +30,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      redirect_to user_path(current_user), success: '編集しました'
+      flash[:success] = "編集しました"
+      redirect_to user_path(current_user)
     else
       render :edit
+      flash.now[:danger] = "編集出来ませんでした"
     end
   end
 
@@ -42,7 +45,8 @@ class UsersController < ApplicationController
       flash[:success] = "アカウントを削除しました"
       redirect_to root_path
     else
-      flash.now[:danger] = "削除出来ません"
+      render :edit
+      flash.now[:danger] = "アカウントを削除出来ませんでした"
     end
   end
 

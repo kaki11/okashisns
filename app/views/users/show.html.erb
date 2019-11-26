@@ -1,19 +1,14 @@
 <div class="menus">
   <% if logged_in? %>
-  <div class="user-menu shadow p-3 mb-5 bg-white rounded">
-    <div class="categorys">menu</div>
-      <%= link_to "投稿する", new_micropost_path %>
-      <%= icon('fas', 'cookie')%>
-      <%= link_to "お気に入り", favorites_path %>
-      <%= icon('fas', 'cookie-bite')%>
-      <%= link_to "アカウント編集", edit_user_path(@user) %>
-  </div>
+    <%= render 'shared/user_nenu' %>
   <% end%>
 </div>
 
 <div class="profile text-center pb-5">
   <p class="name"><%= @user.name %></p>
-  <%= icon('fas', 'star')%><%= @favorites_count %>
+  投稿<%= @user.microposts.count %>件
+  / もらった<%= icon('fas', 'star')%><%= @favorites_count %>
+
   / フォロー
   <%= link_to @user.followings.count, following_user_path(@user) %>
   / フォロワー
