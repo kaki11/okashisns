@@ -2,7 +2,7 @@
   <p class="category">CATEGORY</p>
 
   <span class="categorys">Sweets</span>
-  <% @sweets_categories.each do |c| %>
+  <% @sweets.each do |c| %>
     <div class="category-list">
       <%= link_to c.name, category_micropost_path(c.id) %>
     </div>
@@ -12,7 +12,7 @@
   <p class="category"></p>
 
   <span class="categorys">Bread</span>
-  <% @bread_categories.each do |c| %>
+  <% @bread.each do |c| %>
     <div class="category-list">
       <%= link_to c.name, category_micropost_path(c.id) %>
     </div>
@@ -21,7 +21,7 @@
   <p class="category"></p>
 
   <span class="categorys">Other</span>
-  <% @other_categories.each do |c| %>
+  <% @other.each do |c| %>
     <div class="category-list">
       <%= link_to c.name, category_micropost_path(c.id) %>
     </div>

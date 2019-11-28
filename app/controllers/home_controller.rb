@@ -1,9 +1,9 @@
 class HomeController < ApplicationController
   # modelにかきましょう
   def index
-    @sweets_categories = Category.limit(10)
-    @bread_categories = Category.limit(7).offset(10)
-    @other_categories = Category.offset(17)
+    @sweets = Category.sweets_categories
+    @bread = Category.bread_categories
+    @other = Category.other_categories
     @microposts = Micropost.all.limit(8)
     recipe_ranking_api
   end
