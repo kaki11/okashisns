@@ -12,7 +12,7 @@ module Okashisns
     config.load_defaults 5.2
 
     # Libファイルの読み込み(外部API)
-    config.eager_load_paths += %W(#{config.root}/lib)
+    config.paths.add 'lib', eager_load: true
 
     config.time_zone = 'Tokyo'
     config.i18n.default_locale = :ja
